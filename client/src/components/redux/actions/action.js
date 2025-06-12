@@ -1,17 +1,20 @@
-export const getProducts = ()=>async(dispatch)=>{
-    try {
-        const data = await fetch("/getproducts", {
-            method:"GET",
-            headers:{
-                "Content-Type":"application/json"
-            }
-        });
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-        const res = await data.json();
-        console.log(res);
-        dispatch({type:"SUCCESS_GET_PRODUCTS",payload:res})
+export const getProducts = () => async (dispatch) => {
+  try {
+    const data = await fetch(`${BASE_URL}/getproducts`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      credentials: "include" 
+    });
 
-    } catch (error) {
-        dispatch({type:"FAIL_GET_PRODUCTS",payload:error.response})
-    }
-}
+    const res = await data.json();
+    console.log(res);
+    dispatch({ type: "SUCCESS_GET_PRODUCTS", payload: res });
+
+  } catch (error) {
+    dispatch({ type: "FAIL_GET_PRODUCTS", payload: error });
+  }
+};

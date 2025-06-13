@@ -41,6 +41,7 @@ function Sign_in() {
         email,
         password,
       }),
+      credentials: "include"
     });
 
     const data = await res.json();

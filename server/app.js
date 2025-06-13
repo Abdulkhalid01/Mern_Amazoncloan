@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "mern-amazoncloan.vercel.app",
+    origin: "https://mern-amazoncloan.vercel.app",
     credentials: true,
   })
 );

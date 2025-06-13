@@ -5,10 +5,12 @@ import "react-toastify/dist/ReactToastify.css";
 
 function Option({ deletedata, get }) {
   const { setAccount } = useContext(LoginContext);
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 
   const removedata = async () => {
     try {
-      const res = await fetch(`/remove/${deletedata}`, {
+      const res = await fetch(`${BASE_URL}/remove/${deletedata}`, {
         method: "DELETE",
         headers: {
           Accept: "application/json",

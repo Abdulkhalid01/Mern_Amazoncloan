@@ -14,13 +14,17 @@ function Cart() {
 
   const [inddata, setIndata] = useState(null);
 
+  const BASE_URL = process.env.REACT_APP_BASE_URL; 
+
+
   const getinddata = async () => {
     try {
-      const res = await fetch(`/getproductsone/${id}`, {
+      const res = await fetch(`${BASE_URL}/getproductsone/${id}`, {
         method: "GET",
         headers: {
           "Content-type": "application/json",
         },
+        credentials: "include"
       });
 
       const data = await res.json();
@@ -42,7 +46,7 @@ function Cart() {
   // add cart funcation
 
   const addtocart = async (id) => {
-    const checkres = await fetch(`http://localhost:8005/addcart/${id}`, {
+    const checkres = await fetch(`${BASE_URL}/addcart/${id}`, {
       method: "POST",
       headers: {
         Accept: "application/json",

@@ -8,9 +8,11 @@ import Right from "./Right";
 function Buynow() {
   const [cartdata, setCartdata] = useState([]);
   // console.log(cartdata.carts);
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 
   const getdatabuy = async () => {
-    const res = await fetch("/cartdetails", {
+    const res = await fetch(`${BASE_URL}/cartdetails`, {
       method: "GET",
       headers: {
         Accept: "application/json",

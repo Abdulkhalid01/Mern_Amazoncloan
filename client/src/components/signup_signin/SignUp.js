@@ -28,8 +28,9 @@ function SignUp() {
   const senddata = async (e) => {
     e.preventDefault();
     const { fname, email, mobile, password, cpassword } = udata;
+    const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-    const res = await fetch("register", {
+    const res = await fetch(`${BASE_URL}/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -41,6 +42,7 @@ function SignUp() {
         password,
         cpassword,
       }),
+      credentials: "include"
     });
 
     const data = await res.json();

@@ -47,8 +47,11 @@ function Navbar() {
 
   const [dropen, setDropen] = useState(false);
 
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
   const getdetailvaliduser = async () => {
-    const res = await fetch("/validuser", {
+    const res = await fetch(`${BASE_URL}/validuser`, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -77,7 +80,7 @@ function Navbar() {
   };
 
   const logoutuser = async () => {
-    const res2 = await fetch("/logout", {
+    const res2 = await fetch(`${BASE_URL}/logout`, {
       method: "GET",
       headers: {
         Accept: "application/json",

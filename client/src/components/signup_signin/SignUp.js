@@ -104,7 +104,7 @@ function SignUp() {
               <input
                 type="text"
                 onChange={adddata}
-                value={udata.moblie}
+                value={udata.mobile}
                 name="mobile"
                 id="mobile"
               />

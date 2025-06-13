@@ -29,8 +29,10 @@ function Sign_in() {
     e.preventDefault();
 
     const { email, password } = logdata;
+    const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-    const res = await fetch("/login", {
+
+    const res = await fetch(`${BASE_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
